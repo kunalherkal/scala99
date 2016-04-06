@@ -11,13 +11,11 @@ List('e, 'e, 'e, 'e))
 */
 val list = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd,
   'e, 'e, 'e, 'e)
-
 pack1(list)
 pack2(list)
+def pack1[A](list: List[A]) : List[List[A]] = {
 
-def pack1(list: List[Symbol]) : List[List[Symbol]] = {
-
-  def loop(list1: List[Symbol]) : List[List[Symbol]] = list1 match {
+  def loop[A](list1: List[A]) : List[List[A]] = list1 match {
     case Nil => Nil
     case head :: tail => {
       val fl = list1.takeWhile(a => a == head)
@@ -29,11 +27,10 @@ def pack1(list: List[Symbol]) : List[List[Symbol]] = {
   loop(list)
 }
 
+def pack2[A](list: List[A]) : List[List[A]] = {
 
-def pack2(list: List[Symbol]) : List[List[Symbol]] = {
-
-  def loop(formedList: List[List[Symbol]], list1: List[Symbol])
-  : List[List[Symbol]] = list1 match {
+  def loop[A](formedList: List[List[A]], list1: List[A])
+  : List[List[A]] = list1 match {
     case Nil => formedList
     case head :: tail => {
       val fl = list1.takeWhile(a => a == head)
