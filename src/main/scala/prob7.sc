@@ -5,7 +5,7 @@ scala> flatten(List(List(1, 1), 2, List(3, List(5, 8))))
 res0: List[Any] = List(1, 1, 2, 3, 5, 8)
 * */
 
-val list: List[Any] = List(List(1, 1), 2, List(3, List(5, 8)))
+val list: List[Any] = List(List(1, 1), 2, List(3, List(5, 8), 3))
 flatten(list)
 
 def flatten(list: List[Any]) : List[Any] = {

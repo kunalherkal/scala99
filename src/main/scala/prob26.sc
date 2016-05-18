@@ -14,8 +14,11 @@ res0: List[List[Symbol]] =
 List(List('a, 'b, 'c), List('a, 'b, 'd), List('a, 'b, 'e), ...
 * */
 val list = List('a, 'b, 'c, 'd, 'e, 'f)
+val list2 = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+combinations(2, list2).size
 combinations(3, list).size
 combinations(3, list).foreach(println)
+
 def combinations[A](count: Int, list: List[A]) = {
   def combine(c : Int, list: List[A], formedList: List[A])
   : List[List[A]] = (c, list) match {
@@ -29,6 +32,6 @@ def combinations[A](count: Int, list: List[A]) = {
   def higherCombine(list: List[A]) =  {
     (0 to list.size - count).flatMap(a => middleCombine(list.drop(a))).toList
   }
-  higherCombine(list)
+  higherCombine(list).distinct
 }
 
